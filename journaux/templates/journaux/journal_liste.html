@@ -1,0 +1,54 @@
+<!--journaux/templates/journaux/journal_liste.html-->
+<!--journaux/templates/journaux/home.html-->
+{% extends 'journaux/base.html' %}
+
+{% load static %}
+{% block content %}
+    <h1>Presse et mag</h1>
+    <p>Nos {{ journaux|length }} magazines :</p>
+
+    <table border="1" width="60%">
+        <tr>
+            <td>Nom</td>
+            <td>Editeur</td>
+            <td>Description</td>
+            <td>Add</td>
+            <td>Update</td>
+            <td>Delete</td>
+        </tr>
+
+        {% for journal in journaux %}
+        <tr>
+            <td>
+                <a href="{% url 'journaux_detail' journal.id %}">
+                    {{ journal.nom }}
+                </a>
+            </td>
+            <td>{{ journal.editeur }}</td>
+            <td>{{ journal.description }}</td>
+
+            <td>
+                <a href="{% url 'journal-create' %}">
+                    Ajouter
+                </a>
+            </td>
+
+            <td>
+                <a href="#">
+                    Modifier
+                </a>
+            </td>
+
+            <td>
+                <a href="#">
+                    Supprimer
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    <div>
+        <img src="{% static 'journaux/images/django.png' %}" alt="">
+    </div>
+{% endblock %}

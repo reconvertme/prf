@@ -1,0 +1,22 @@
+<!--journaux/templates/journaux/home.html-->
+{% extends 'journaux/base.html' %}
+
+{% load static %}
+{% block content %}
+<div>
+    <img src="{{ journal.banner.url }}" alt="{{ journal.nom }}" width="600">
+</div>
+
+    <h1>Presse et mag</h1>
+
+
+    <ul><!-- Liste des journaux -->
+        <li>{{ journal.nom }}</li>
+    </ul>
+
+    <br>
+
+    <div>
+        <img src="{% static 'journaux/images/django.png' %}" alt="">
+    </div>
+{% endblock %}

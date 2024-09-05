@@ -1,0 +1,10 @@
+{% extends 'journaux/base.html' %}
+{% block content %}
+
+ <h1>Nouveau journal</h1>
+<form action="" method="post" enctype="multipart/form-data" novalidate>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Ajouter">
+</form>
+{% endblock %}
